@@ -1,15 +1,16 @@
+import "dotenv/config"
 
 const getTagsFromImageUrl = async ()=>{
 	const endpoint = 'https://instancenametesting.cognitiveservices.azure.com/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=tags&language=en&gender-neutral-caption=False'; // Replace with your actual endpoint
 
-	const imageUrl = 'https://hips.hearstapps.com/hmg-prod/images/2023-chevrolet-corvette-z06-002-1635950091.jpg';
+	const imageUrl = 'https://images-ext-2.discordapp.net/external/B7IMUnRH_Ov0yswFCdnOBqYw6TDrYtU_tMlFosEdV_M/https/pbs.twimg.com/media/F_aOvDDaIAAsXuA.jpg?width=593&height=639';
 
 	console.log("FETCHING")
 	return fetch(endpoint, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
-			'Ocp-Apim-Subscription-Key': "5d6871eea16b4b93bf98c95695c90ea1",
+			'Ocp-Apim-Subscription-Key': process.env.AZURE_KEY,
 	},
 		body: JSON.stringify({ url: imageUrl }),
 	})
@@ -18,7 +19,7 @@ const getTagsFromImageUrl = async ()=>{
 		return response.json()
 	})
 	.then(data => {
-		const tags = data.tagsResult.values
+		const tags = data
 		console.log("tags0")
 		console.log(tags)
 
