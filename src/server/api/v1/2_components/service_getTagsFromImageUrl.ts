@@ -8,6 +8,7 @@ const getTagsFromImageUrl = async ()=>{
 	console.log("FETCHING")
 	return fetch(endpoint, {
 		method: 'POST',
+		// @ts-ignore
 		headers: {
 			'Content-Type': 'application/json',
 			'Ocp-Apim-Subscription-Key': process.env.AZURE_KEY,
