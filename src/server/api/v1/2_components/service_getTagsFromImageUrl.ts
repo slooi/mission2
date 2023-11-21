@@ -1,9 +1,7 @@
 import "dotenv/config"
 
-const getTagsFromImageUrl = async ()=>{
+const getTagsFromImageUrl = async (imageUrl:string)=>{
 	const endpoint = 'https://instancenametesting.cognitiveservices.azure.com/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=tags&language=en&gender-neutral-caption=False'; // Replace with your actual endpoint
-
-	const imageUrl = 'https://images-ext-2.discordapp.net/external/B7IMUnRH_Ov0yswFCdnOBqYw6TDrYtU_tMlFosEdV_M/https/pbs.twimg.com/media/F_aOvDDaIAAsXuA.jpg?width=593&height=639';
 
 	console.log("FETCHING")
 	return fetch(endpoint, {
@@ -16,7 +14,6 @@ const getTagsFromImageUrl = async ()=>{
 		body: JSON.stringify({ url: imageUrl }),
 	})
 	.then(response => {
-		console.log("THEN1	")
 		return response.json()
 	})
 	.then(data => {
