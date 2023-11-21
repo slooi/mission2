@@ -3,10 +3,10 @@ import { controller_getImageTags } from "../1_controllers/controller_getImageTag
 
 const router_imageAnalysis = express.Router()
 
-router_imageAnalysis.use("/",(req,res,next)=>{
-	console.log("adkajl")
-	next()
-})
+// router_imageAnalysis.use("/",(req,res,next)=>{
+// 	console.log("adkajl")
+// 	next()
+// })
 
 router_imageAnalysis.get("/imageanalysis/tags",controller_getImageTags)
 
