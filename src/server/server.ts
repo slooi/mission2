@@ -9,7 +9,7 @@ const app = express()
 
 
 // Middleware
-
+app.use(express.json())	// Allow server to parse incoming json data
 
 // Routes
 // app.get("/",(req,res)=>{
