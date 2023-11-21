@@ -19,7 +19,7 @@ const getTagsFromImageUrl = async ()=>{
 		return response.json()
 	})
 	.then(data => {
-		const tags = data
+		const tags = data.tagsResult.values
 		console.log("tags0")
 		console.log(tags)
 
