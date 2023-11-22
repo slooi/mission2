@@ -9,7 +9,7 @@ const express_app = express()
 
 
 
-// generateAnArrayOfImageUrlsFromCarTypes(["hatchback","suv"])
+// generateAnArrayOfImageUrlsFromCarTypes(["super","suv"])
 
 
 // Middleware

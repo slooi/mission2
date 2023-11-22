@@ -37,10 +37,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 // 		newTagItem.url = ""
 // 	})
 // }
-const rootPathFromDirname = path.join(__dirname,"..","..","..","..")
-const publicPathFromRoot = path.join("client","public")
+const rootPathFromDirname = path.join(__dirname, "..", "..", "..", "..")
+const publicPathFromRoot = path.join("client", "public")
 
-export const generateAnArrayOfImageUrlsFromCarTypes = async (carTypes:string[]) =>{
+export const generateAnArrayOfImageUrlsFromCarTypes = async (carTypes: string[]) => {
 	/* 
 		INPUT(STRING): hatchback
 		OUTPUT(array<string>): [
@@ -49,19 +49,35 @@ export const generateAnArrayOfImageUrlsFromCarTypes = async (carTypes:string[]) 
 		]
 		Note, carModel might not exist
 	*/
-	
+
 	// Get files from folder
-	const directoryPath = path.join(rootPathFromDirname,publicPathFromRoot,"imgs");
-	const files = await getFilesFromFolder(directoryPath)
-	console.log(files)
+	const directoryPath = path.join(rootPathFromDirname, publicPathFromRoot, "imgs");
+	let filteredFiles = await getFilesFromFolder(directoryPath)
+	console.log(filteredFiles)
+	console.log(filteredFiles)
 
 	// Filter
+	filteredFiles = getFilesContainCarTypes(filteredFiles,carTypes)
+	console.log(filteredFiles)
 
+
+}	
+function getFilesContainCarTypes(files:string[], carTypes:string[]) {
+	var filteredFiles = new Set<string>()
+	for (let i = 0; i < carTypes.length; i++) {
+		for (let j = 0; j < files.length; j++) {
+
+			if (files[j].includes(carTypes[i])) {
+				filteredFiles.add(files[j])
+			}
+		}
+	}
+	return Array.from(filteredFiles)
 }
 
-function getFilesFromFolder(folderPath:string){
-	return new Promise((resolve,reject)=>{
-		fs.readdir(folderPath, async (err: any, files: any[]) => {
+function getFilesFromFolder(folderPath: string) {
+	return new Promise<string[]>((resolve, reject) => {
+		fs.readdir(folderPath, async (err: any, files: string[]) => {
 			if (err) reject(err)
 			resolve(files)
 		});
