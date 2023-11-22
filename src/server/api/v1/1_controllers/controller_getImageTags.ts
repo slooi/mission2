@@ -2,6 +2,7 @@ import { Request, Response } from "express"
 import { getTagsFromImageUrl } from "../2_components/service_getTagsFromImageUrl"
 import "dotenv/config"
 import { AzureTagArray } from "../2_components/model_azureTagArray";
+import { service_findCarTypeOfHighestConfidence } from "../2_components/service_findCarTypeOfHighestConfidence";
 
 const controller_getImageTags = async (req:Request,res:Response)=>{
 
@@ -17,9 +18,10 @@ const controller_getImageTags = async (req:Request,res:Response)=>{
 		const tags = await getTagsFromImageUrl(imageUrl)	
 		
 		try{
-			AzureTagArray.parse(tags)
-			console.log("asdddddddddddddddddd")
-			res.status(200).json(tags)
+			const azureTagArray = AzureTagArray.parse(tags)
+
+			const filteredTagArray = service_findCarTypeOfHighestConfidence(azureTagArray)
+			res.status(200).json(filteredTagArray)
 		}catch(err){
 			res.status(400).json({ error: "Tags did not match AzureTagArray model!" });
 		}
