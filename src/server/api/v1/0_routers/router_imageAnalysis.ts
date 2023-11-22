@@ -8,6 +8,7 @@ const router_imageAnalysis = express.Router()
 // 	next()
 // })
 
-router_imageAnalysis.get("/imageanalysis/tags",controller_getImageTags)
+router_imageAnalysis.get("/imageanalysis/tags/dev",controller_getImageTags)
+// router_imageAnalysis.post("/imageanalysis/tags",controller_getImageTags)
 
 export {router_imageAnalysis}
