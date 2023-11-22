@@ -1,19 +1,10 @@
 // WHEN FILTERING REMOVE SPACES
 
 import { AzureTagArray } from "./model_azureTagArray"
+import { carTypes } from "./utils_carTypes"
 
 // INPUTS:
 // OUTPUTS:
-
-const carTypes=[
-	"suv",
-	"supercar",
-	"sportscar",
-	"hatchback",
-	"supermini",
-	"familycar",
-	"compactmpv"
-]
 
 export const service_findCarTypeOfHighestConfidence = (tagArray:AzureTagArray)=>{
 	// 1) Filter array of tags so we only have relevent car tag types
