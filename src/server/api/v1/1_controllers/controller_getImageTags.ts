@@ -11,7 +11,7 @@ const controller_getImageTags = async (req:Request,res:Response)=>{
 
 		// res.send("you're supposed to get a list image urls so client can fetch")
 
-		const imageUrl = `${process.env.SERVER_IP}/public/${userSpecifiedFileName}`;
+		const imageUrl = `${process.env.SERVER_IP}/public/userUploads/${userSpecifiedFileName}`;
 		const tags = await getTagsFromImageUrl(imageUrl)
 		res.status(200).json(tags)
 	} else {

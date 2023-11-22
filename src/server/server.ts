@@ -2,11 +2,11 @@ import express from "express"
 import { router_apiMaster } from "./api/router_apiMaster"
 import path from "path"
 import { fileURLToPath } from 'url';
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const express_app = express()
 
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 
 

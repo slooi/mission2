@@ -13,7 +13,7 @@ const router_imageAnalysis = express.Router()
 const upload = multer({
 	storage: multer.diskStorage({
 		destination: (req, file, cb) => {
-			cb(null, path.join(__dirname,"..","..","..","..","client","public"));
+			cb(null, path.join(__dirname,"..","..","..","..","client","public","userUploads"));
 		},
 		filename: (req, file, cb) => {
 			// Use the originalname provided by the user as the filename
