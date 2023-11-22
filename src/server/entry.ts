@@ -1,5 +1,5 @@
-import { app } from "./server";
+import { express_app } from "./server";
 
 const PORT = 8000
 
-app.listen(PORT,()=>console.log("Listening on port "+PORT))
+express_app.listen(PORT,()=>console.log("Listening on port "+PORT))
