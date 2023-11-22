@@ -8,4 +8,4 @@ AZURE_KEY=<YOUR_KEY>
 SERVER_IP=<YOUR_IP>
 ```
 
-2) Create public folder with pre-labeled images
+2) Create public folder with pre-labeled images in client
