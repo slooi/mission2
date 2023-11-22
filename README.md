@@ -1,6 +1,6 @@
 
 # Setup
 
-## Create .env file
+1) Create .env file. Containing 
 
-## Create public folder with pre-labeled images
+2) Create public folder with pre-labeled images
