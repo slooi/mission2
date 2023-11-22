@@ -1,5 +1,5 @@
 import express from "express"
-import { controller_getImageTags } from "../1_controllers/controller_getImageTags"
+import { controller_getImageTags, controller_getImageTagsDev } from "../1_controllers/controller_getImageTags"
 
 const router_imageAnalysis = express.Router()
 
@@ -8,7 +8,7 @@ const router_imageAnalysis = express.Router()
 // 	next()
 // })
 
-router_imageAnalysis.get("/imageanalysis/tags/dev",controller_getImageTags)
-// router_imageAnalysis.post("/imageanalysis/tags",controller_getImageTags)
+router_imageAnalysis.get("/imageanalysis/tags/dev",controller_getImageTagsDev)
+router_imageAnalysis.post("/imageanalysis/tags",controller_getImageTags)
 
 export {router_imageAnalysis}
