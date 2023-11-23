@@ -20,4 +20,4 @@ SERVER_IP=<YOUR_IP>
 
 5) To run the application run `npm run dev-server`
 
-Note: You will have to open your ports to allow azure 
+Note: You will have to open your ports to allow azure to GET images located in the `/src/client/public/userUploads` folder at your server's ip `SERVER_IP`
