@@ -2,7 +2,6 @@ import express from "express"
 import { router_apiMaster } from "./api/router_apiMaster"
 import path from "path"
 import { fileURLToPath } from 'url';
-import { generateAnArrayOfImageUrlsFromCarTypes } from "./api/v1/2_components/service_createTagUrlArray";
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const express_app = express()
