@@ -2,8 +2,8 @@ import { Request, Response } from "express"
 import { getTagsFromImageUrl } from "../2_components/service_getTagsFromImageUrl"
 import "dotenv/config"
 import { AzureTagArray } from "../2_components/model_azureTagArray";
-import { service_filterForCarTypesOnly } from "../2_components/service_filterForCarTypesOnly";
 import { service_generateAnArrayOfImageUrlsFromCarTypes } from "../2_components/service_createTagUrlArray";
+import { service_filterForCarTypesOnly } from "../2_components/service_filterForCarTypesOnly";
 
 const controller_getImageTags = async (req:Request,res:Response)=>{
 	if (req.file) {
