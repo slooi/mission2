@@ -1,17 +1,72 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-  </head>
-  <body>
-    <div id="root">
-		<form action="/api/v1/imageanalysis/tags/" method="post" enctype="multipart/form-data">
-			<input type="file" accept="image/*" name="photo" />
-			<input type="submit" value="upload" />
-		</form>
-	</div>
-    <!-- <script type="module" src="./main.tsx"></script> -->
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + React + TS</title>
+</head>
+
+<body>
+  <div id="root">
+    <form onsubmit="send(event,this)" action="/api/v1/imageanalysis/tags/" method="post" enctype="multipart/form-data">
+      <input type="file" accept="image/*" name="photo" />
+      <input type="submit" value="upload" />
+    </form>
+    <form method="POST" action="/test" onsubmit="send(event,this)">
+      <input hidden name="csrfToken" value="a1e24s1">
+      <input name="email" value="a@b.com">
+      <input name="phone" value="123-456-789">
+      <input type="submit">    
+  </form>
+  </div>
+  <script>
+  function send(e,form) {
+    console.log("SENDING FORM!")
+    e.preventDefault();
+    fetch(form.action, {method:'post', body: new FormData(form)}).then(res=>{
+      return res.json()
+    }).then(res=>{
+      console.log(res)
+    })
+    console.log('We send post asynchronously (AJAX)');
+  }
+
+  document.getElementById('myForm').addEventListener('submit', function(event) {
+    event.preventDefault()
+  })
+    
+    // var form = document.getElementById("myForm");
+    // function handleForm(event) { event.preventDefault(); } 
+    // form.addEventListener('submit', handleForm);
+    
+    // function submitForm(e) {
+    //   const form = document.getElementById('imageForm');
+    //   const formData = new FormData(form);
+
+    //   fetch('/api/v1/imageanalysis/tags/', {
+    //     method: 'POST',
+    //     body: formData,
+    //   })
+    //     .then(response => {
+    //       if (!response.ok) {
+    //         throw new Error('Network response was not ok');
+    //       }
+    //       return response.json();
+    //     })
+    //     .then(data => {
+    //       // Handle the response data as needed
+    //       console.log(data);
+    //     })
+    //     .catch(error => {
+    //       // Handle errors during the fetch
+    //       console.error('Error during fetch:', error);
+    //     });
+    // }
+  </script>
+
+
+  <!-- <script type="module" src="./main.tsx"></script> -->
+</body>
+
 </html>

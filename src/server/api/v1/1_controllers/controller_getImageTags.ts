@@ -6,7 +6,8 @@ import { service_findCarTypeOfHighestConfidence } from "../2_components/service_
 import { service_generateAnArrayOfImageUrlsFromCarTypes } from "../2_components/service_createTagUrlArray";
 
 const controller_getImageTags = async (req:Request,res:Response)=>{
-
+	console.log("GETIMAGETAGES WAS HIT!")
+	console.log(req.file)
 	if (req.file) {
 		const userSpecifiedFileName = req.file.originalname;
 		// console.log(userSpecifiedFileName)
