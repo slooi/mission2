@@ -1,48 +1,14 @@
-/* 
-	Goal:
-	- This service simply converts this:
-	[
-		{ name: 'hatchback', confidence: 0.9454644918441772 },
-		{ name: 'familycar', confidence: 0.8758280277252197 },
-		{ name: 'supermini', confidence: 0.8744406700134277 },
-		{ name: 'compactmpv', confidence: 0.8464362621307373 }
-	]
-	- Into 
-	[
-		{ name: 'hatchback', confidence: 0.9454644918441772, url:"/public/imgs/suv0.webp"},
-		{ name: 'familycar', confidence: 0.8758280277252197 },
-		{ name: 'supermini', confidence: 0.8744406700134277 },
-		{ name: 'compactmpv', confidence: 0.8464362621307373 }
-	]
-
-
-	NO! It's not a one-to-one mapping!
-	Get all images even if they have a low confidence rating!
-*/
-
-import { flushSync } from "react-dom";
-import { AzureTagArray, TagUrlItem } from "./model_azureTagArray";
 import fs from "fs"
-// import {globby} from 'globby';
-
 import path from "path"
 import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-
-
-// export const service_createTagUrlArray = (tagArray:AzureTagArray)=>{
-// 	const tagUrlArray = tagArray.map(tagItem=>{
-// 		const newTagItem:TagUrlItem = {...tagItemm, url:}
-// 		newTagItem.url = ""
-// 	})
-// }
 const rootPathFromDirname = path.join(__dirname, "..", "..", "..", "..")
 const publicPathFromRoot = path.join("client", "public")
 
 export const service_generateAnArrayOfImageUrlsFromCarTypes = async (carTypes: string[]) => {
 	/* 
-		INPUT(STRING): hatchback
+		INPUT(array<string>): ["hatchback", "suv"]
 		OUTPUT(array<string>): [
 			"/public/imgs/suv0.webp",
 			"/public/imgs/suv1.webp"
@@ -64,7 +30,10 @@ export const service_generateAnArrayOfImageUrlsFromCarTypes = async (carTypes: s
 	const filesWithPublicPath = filteredFiles.map(filteredFile=>"/public/imgs/"+filteredFile)
 	console.log(filesWithPublicPath)
 	return filesWithPublicPath
-}	
+}
+
+
+/* ############ HELPER FUNCTIONS ############ */
 function getFilesContainCarTypes(files:string[], carTypes:string[]) {
 	var filteredFiles = new Set<string>()
 	for (let i = 0; i < carTypes.length; i++) {

@@ -6,16 +6,8 @@ import { service_findCarTypeOfHighestConfidence } from "../2_components/service_
 import { service_generateAnArrayOfImageUrlsFromCarTypes } from "../2_components/service_createTagUrlArray";
 
 const controller_getImageTags = async (req:Request,res:Response)=>{
-	console.log("GETIMAGETAGES WAS HIT!")
-	console.log(req.file)
 	if (req.file) {
 		const userSpecifiedFileName = req.file.originalname;
-		// console.log(userSpecifiedFileName)
-		// console.log("User-specified filename:", userSpecifiedFileName);
-
-
-		// res.send("you're supposed to get a list image urls so client can fetch")
-
 		const imageUrl = `${process.env.SERVER_IP}/public/userUploads/${userSpecifiedFileName}`;
 		const tags = await getTagsFromImageUrl(imageUrl)	
 		
