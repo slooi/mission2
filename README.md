@@ -1,7 +1,11 @@
 # Context
 
 (this is coursework)
-Create a website which allows users to upload images of cars to find similar car.
+Create a website which allows users to upload images of cars to find similar car using Microsoft Azure's Vision Api. This project uses the Image Tagging service they provide. Here are some resources which I found most helpful for this project:
+
+- https://portal.vision.cognitive.azure.com/demo/generic-image-tagging
+- https://centraluseuap.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-02-01-preview/operations/61d65934cd35050c20f73ab6
+- https://centraluseuap.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-02-01-preview/operations/61d65934cd35050c20f73ab6/console
 
 # Setup
 
