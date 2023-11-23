@@ -4,7 +4,7 @@ import { carTypes } from "./utils_carTypes"
 // INPUTS:
 // OUTPUTS:
 
-export const service_findCarTypeOfHighestConfidence = (tagArray:AzureTagArray)=>{
+export const service_checkIfCarTypeExistsInDb = (tagArray:AzureTagArray)=>{
 	// 1) Filter array of tags so we only have relevent car tag types
 	// 1.1) remove white space
 	let filteredTagArray:AzureTagArray = tagArray.map(item=>{
