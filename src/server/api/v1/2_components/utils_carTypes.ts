@@ -1,9 +1,13 @@
+// REMOVE ALL SPACES AND CAPITAL LETTERS
+
 export const carTypes=[
-	"suv",
-	"supercar",
-	"sportscar",
+	"coupe",
+	"crossover",
 	"hatchback",
-	"supermini",
-	"familycar",
-	"compactmpv"
+	"pickup",
+	"sedan",
+	"supercar",
+	"suv",
+	"truck",
+	"van"
 ]
