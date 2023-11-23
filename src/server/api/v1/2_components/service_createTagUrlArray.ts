@@ -52,15 +52,15 @@ export const generateAnArrayOfImageUrlsFromCarTypes = async (carTypes: string[])
 
 	// Get files from folder
 	const directoryPath = path.join(rootPathFromDirname, publicPathFromRoot, "imgs");
-	let filteredFiles = await getFilesFromFolder(directoryPath)
-	console.log(filteredFiles)
-	console.log(filteredFiles)
+	const files = await getFilesFromFolder(directoryPath)
+	
+	// Filter to only include wanted car types
+	let filteredFiles = getFilesContainCarTypes(files,carTypes)
 
-	// Filter
-	filteredFiles = getFilesContainCarTypes(filteredFiles,carTypes)
-	console.log(filteredFiles)
-
-
+	// Attach public path so client can access
+	const filesWithPublicPath = filteredFiles.map(filteredFile=>"/public/imgs/"+filteredFile)
+	console.log(filesWithPublicPath)
+	return filesWithPublicPath
 }	
 function getFilesContainCarTypes(files:string[], carTypes:string[]) {
 	var filteredFiles = new Set<string>()
