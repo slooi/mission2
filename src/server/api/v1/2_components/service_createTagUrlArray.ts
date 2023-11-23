@@ -53,6 +53,9 @@ export const service_generateAnArrayOfImageUrlsFromCarTypes = async (carTypes: s
 	// Get files from folder
 	const directoryPath = path.join(rootPathFromDirname, publicPathFromRoot, "imgs");
 	const files = await getFilesFromFolder(directoryPath)
+	console.log("files")
+	console.log("files")
+	console.log(files)
 	
 	// Filter to only include wanted car types
 	let filteredFiles = getFilesContainCarTypes(files,carTypes)
