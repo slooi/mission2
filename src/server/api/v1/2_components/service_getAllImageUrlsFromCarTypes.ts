@@ -6,7 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const rootPathFromDirname = path.join(__dirname, "..", "..", "..", "..")
 const publicPathFromRoot = path.join("client", "public")
 
-export const service_generateAnArrayOfImageUrlsFromCarTypes = async (carTypes: string[]) => {
+export const service_getAllImageUrlsFromCarTypes = async (carTypes: string[]) => {
 	/* 
 		INPUT(array<string>): ["hatchback", "suv"]
 		OUTPUT(array<string>): [

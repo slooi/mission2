@@ -2,7 +2,7 @@ import { Request, Response } from "express"
 import { getTagsFromImageUrl } from "../2_components/service_getTagsFromImageUrl"
 import "dotenv/config"
 import { AzureTagArray } from "../2_components/model_azureTagArray";
-import { service_generateAnArrayOfImageUrlsFromCarTypes } from "../2_components/service_createTagUrlArray";
+import { service_getAllImageUrlsFromCarTypes } from "../2_components/service_getAllImageUrlsFromCarTypes";
 import { service_filterForCarTypesOnly } from "../2_components/service_filterForCarTypesOnly";
 
 const controller_getImageTags = async (req:Request,res:Response)=>{
@@ -21,7 +21,7 @@ const controller_getImageTags = async (req:Request,res:Response)=>{
 			const names = filteredTagArray.map(tagItem=>tagItem.name)
 			console.log("names")
 			console.log(names)
-			const imageUrls = await service_generateAnArrayOfImageUrlsFromCarTypes(names)
+			const imageUrls = await service_getAllImageUrlsFromCarTypes(names)
 			console.log(imageUrls)
 			res.status(200).json(imageUrls)
 		}catch(err){
