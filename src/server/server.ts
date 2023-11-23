@@ -2,33 +2,13 @@ import express from "express"
 import { router_apiMaster } from "./api/router_apiMaster"
 import path from "path"
 import { fileURLToPath } from 'url';
-import bodyParser from "body-parser";
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const express_app = express()
 
-
-
-// generateAnArrayOfImageUrlsFromCarTypes(["super","suv"])
-
-
 // Middleware
-// express_app.use(bodyParser.urlencoded({ extended: false }))
 express_app.use(express.json())	// Allow server to parse incoming json data
 express_app.use("/public",express.static(path.join(__dirname,"..","client","public")))
-express_app.use("/public",express.static(path.join(__dirname,"..","client","public")))
-// express_app.use(express.static(path.join(__dirname,"public")))
-
-
-
-
-
-
-// Routes react route
-// express_app.get("/",(req,res)=>{
-// 	console.log("hi!")
-// 	res.send("lol")
-// })
 
 // Routes normal route
 express_app.get("/",(req,res)=>{
@@ -36,19 +16,13 @@ express_app.get("/",(req,res)=>{
 	res.sendFile(path.join(__dirname,"..","client","index.html"))
 })
 
-
-
 // TESTING
 express_app.post("/test",(req,res)=>{
 	console.log("/test")
 	console.log(req)
 })
 
-
-
 // Midleware Routes
 express_app.use(router_apiMaster)
-
-
 
 export {express_app}
