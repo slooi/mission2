@@ -37,6 +37,7 @@ const controller_getImageTags = async (req:Request,res:Response)=>{
 	} else {
 		res.status(400).json({ error: "No file uploaded" });
 	}
+	res.status(400).json({ error: "req.file does not exist" });
 }
 
 
