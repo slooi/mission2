@@ -18,7 +18,7 @@ const getTagsFromImageUrl = async (imageUrl:string)=>{
 		return response.json()
 	})
 	.then(data => {
-		console.log("jsonfied data")
+		console.log("jsonfied data:")
 		console.log(data)
 		const tags = data.tagsResult.values
 		console.log("tags0")
@@ -27,6 +27,8 @@ const getTagsFromImageUrl = async (imageUrl:string)=>{
 		return tags
 	})
 	.catch(error => {
+		console.log("error:")
+		console.log(error)
 		throw new Error("THERE WAS A FUCKING ERROR")
 	});
 }
